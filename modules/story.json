@@ -1,0 +1,213 @@
+{
+  "game": {
+    "start_money": 40,
+    "win_target": 5000,
+    "reset_money": 40,
+    "disclaimer": "This game is intended solely for entertainment purposes and does not involve real-money gambling, wagering, or monetary rewards. No financial transactions or betting are part of the gameplay. The developer explicitly disclaims any responsibility or liability for any potential negative consequences that may arise from playing this game, including but not limited to the development of gambling addiction, compulsive behaviors, or emotional distress.\n\nPlayers are advised to engage with this game responsibly and within their personal limits. If you believe playing this game is negatively impacting your life, behavior, or mental health, please cease playing immediately and seek appropriate assistance. Organizations such as Spielsuchthilfe in Austria offer support and resources for individuals affected by gambling-related issues.\n\nUnder Austrian law (§ 1 GSpG, Glücksspielgesetz), gambling is defined as games where the outcome depends entirely or predominantly on chance, and which require a monetary stake. This game does not fall under these legal definitions as no real money is involved. However, the developer emphasizes the importance of promoting responsible gaming practices to prevent harm.\n\nBy engaging with this game, you acknowledge that it is intended for recreational purposes only. You also agree that the developer is not liable for any direct or indirect consequences, including but not limited to financial, psychological, or social impacts.\n\nFor more information on Austrian gambling laws, please consult the Bundesministerium für Finanzen (BMF) or other legal resources.\n\nThank you for understanding and playing responsibly.",
+    "welcome": "After a fun night at the bar on top of the mountain with your friend Drago, you find yourself inside of a luxurious casino with no memories on how you got there.",
+    "casino_tour": "You confusely look around, until a staff manager approaches you and offers you a tour of the casino. You accept and he guides you through the different rooms.",
+    "casino_tour_rooms": [
+      "\nThe Lobby, a magnificent room full of flashing lights, elegant carpets, and an atmosphere of wealth and mystery.",
+      "\nThe Slots Room, a room full of slot machines and excited players.",
+      "\nThe Blackjack Room, an elegant room with blackjack tables and focused players.",
+      "\nThe Horse Race Room, a room with thrilling races and cheering crowds.",
+      "\nThe Poker Room, a dimly lit room with poker tables and serious players.",
+      "\nThe Baccarat Room, an elegant room with baccarat tables and stylish players aswell as bets so high you cant comprehend.",
+      "\nThe Roulette Room, a glamorous room with a large roulette table in the center.",
+      "\nThe VIP Lounge, a room you can only enter if you have enough money to unlock it."
+    ]
+  },
+  "rooms": [
+    {
+      "name": "Lobby",
+      "description": "A magnificent room full of flashing lights, elegant carpets, and an atmosphere of wealth and mystery.\nThe air is filled with the sound of clinking coins and lively players. Portraits of legendary winners, whose stories are almost as famous as the casino itself, adorn the walls.",
+      "locked": false,
+      "unlock_cost": 0,
+      "exits": [
+        { "direction": "slots", "room": "Slots Room" },
+        { "direction": "lounge", "room": "VIP Lounge" }
+      ],
+      "game": null,
+      "events": [
+        {
+          "type": "introduction",
+          "dialogue": "Welcome to the casino! Here you can challenge your fate, but be warned, not everyone who enters leaves as a winner."
+        },
+        {
+          "type": "mysterious_figure",
+          "dialogue": "A mysterious man in a dark suit speaks to you: 'Are you really playing just for fun, or do you want more? True riches await, but the price is steep.'"
+        }
+      ]
+    },
+    {
+      "name": "Slots Room",
+      "description": "A room full of slot machines and excited players. The lights of the machines blink hypnotically, and the occasional sound of a jackpot electrifies the room. But not everyone is lucky here – the machines have their whims.",
+      "locked": false,
+      "unlock_cost": 0,
+      "exits": [
+        { "direction": "lobby", "room": "Lobby" },
+        { "direction": "blackjack", "room": "Blackjack Room" }
+      ],
+      "game": {
+        "type": "Slots",
+        "min_bet": 2,
+        "reel_symbols": ["🍒", "🍋", "🔔", "⭐", "7️⃣"],
+        "description": "Spin the reels and hope for three matching symbols to win coins."
+      },
+      "events": [
+        {
+          "type": "big_win",
+          "dialogue": "The reels spin and a bright tone sounds. You've hit the jackpot! Your winnings are almost too big to count!"
+        },
+        {
+          "type": "loss",
+          "dialogue": "The reels stop and you see the familiar symbol of failure. Your coins disappear faster than you can bet them."
+        }
+      ]
+    },
+    {
+      "name": "Blackjack Room",
+      "description": "An elegant room with blackjack tables and focused players. Soft music plays in the background, and the atmosphere is tense as players study their cards. A sense of daring fills the air – who will dare to win the game?",
+      "locked": true,
+      "unlock_cost": 50,
+      "exits": [
+        { "direction": "slots", "room": "Slots Room" },
+        { "direction": "horse_race", "room": "Horse Race Room" }
+      ],
+      "game": {
+        "type": "Blackjack",
+        "min_bet": 5,
+        "description": "Face the dealer and try to get as close to 21 points as possible without exceeding it."
+      },
+      "events": [
+        {
+          "type": "dealer_challenge",
+          "dialogue": "The dealer smiles mysteriously and says: 'Are you ready to test your luck? Only the brave survive here.'"
+        },
+        {
+          "type": "high_stakes",
+          "dialogue": "You feel the tension in the room rise as you make a high bet. All eyes are on you. Will you triumph or fail?"
+        }
+      ]
+    },
+    {
+      "name": "Horse Race Room",
+      "description": "A room with thrilling horse races. The walls are decorated with pictures of famous winners, and the tension is palpable as the races are broadcast. The crowd cheers as the horses are at the starting gate – it’s going to be an exciting race.",
+      "locked": true,
+      "unlock_cost": 100,
+      "exits": [
+        { "direction": "blackjack", "room": "Blackjack Room" },
+        { "direction": "vip", "room": "VIP Lounge" }
+      ],
+      "game": {
+        "type": "Horse Race",
+        "min_bet": 8,
+        "horses": ["Blitz", "Thunder", "Wind", "Storm"],
+        "description": "Bet on your favorite horse and experience the thrill of a race. Winning triples your bet!"
+      },
+      "events": [
+        {
+          "type": "race_begin",
+          "dialogue": "The race begins, the horses gallop off. Your heart races – did you bet on the right horse?"
+        },
+        {
+          "type": "photo_finish",
+          "dialogue": "It was a close race, but your horse has won! You get three times your bet back!"
+        }
+      ]
+    },
+    {
+      "name": "Poker Room",
+      "description": "A dimly lit room with poker tables where serious players sit. The atmosphere is tense, every move counts, and the sound of chips being stacked fills the air.",
+      "locked": true,
+      "unlock_cost": 75,
+      "exits": [
+        { "direction": "lobby", "room": "Lobby" }
+      ],
+      "game": {
+        "type": "Poker",
+        "min_bet": 10,
+        "description": "Test your poker face and bluff your way to victory with the best cards or the strongest nerves."
+      },
+      "events": [
+        {
+          "type": "big_bluff",
+          "dialogue": "You make a big bluff and your heart races as your opponent hesitates. The chips are now yours!"
+        },
+        {
+          "type": "all_in",
+          "dialogue": "You go all-in. All eyes are on you. It’s all or nothing!"
+        }
+      ]
+    },
+    {
+      "name": "Baccarat Room",
+      "description": "An elegant room with baccarat tables where players in suits and dresses sit. The dealer distributes the cards with professional precision. This is a game of style and strategy.",
+      "locked": true,
+      "unlock_cost": 100,
+      "exits": [
+        { "direction": "lobby", "room": "Lobby" }
+      ],
+      "game": {
+        "type": "Baccarat",
+        "min_bet": 20,
+        "description": "Choose between Player, Banker, or Tie and bet on the winner in this fast-paced card game."
+      },
+      "events": [
+        {
+          "type": "lucky_banker",
+          "dialogue": "The banker wins with an incredible score. You rejoice over your winnings!"
+        },
+        {
+          "type": "player_victory",
+          "dialogue": "Your bet on the player was successful. You collect your winnings."
+        }
+      ]
+    },
+    {
+      "name": "Roulette Room",
+      "description": "A glamorous room with a large roulette table in the center. Players watch intently as the ball dances on the spinning wheel before landing on a number.",
+      "locked": true,
+      "unlock_cost": 120,
+      "exits": [
+        { "direction": "lobby", "room": "Lobby" }
+      ],
+      "game": {
+        "type": "Roulette",
+        "min_bet": 5,
+        "description": "Bet on a number, color, or row and watch as the ball decides your fate."
+      },
+      "events": [
+        {
+          "type": "red_win",
+          "dialogue": "The ball lands on red! Your bet doubles."
+        },
+        {
+          "type": "zero",
+          "dialogue": "The ball lands on zero. A rare outcome, but the reward is huge!"
+        }
+      ]
+    }
+  ],
+  "owner": {
+    "name": "Casino Owner",
+    "dialogue": [
+      "Welcome, player. You’ve come far, but this is just the beginning.",
+      "You stand at a crossroads: glory and riches or a life of regret. What choice will you make?",
+      "Choose your game. I hope your luck holds, for mine is legendary.",
+      "You’ve gained fame, but the real test is yet to come. Come to me when you’re ready to risk it all."
+    ],
+    "challenge": {
+      "type": "choose",
+      "games": ["Slots", "Blackjack", "Horse Race", "Roulette", "Poker", "Baccarat"],
+      "win_reward": "You’ve taken over the casino! It’s yours, and your fame precedes you.",
+      "lose_penalty": "You’ve lost everything. The casino graciously leaves you a few coins to start again.",
+      "events": [
+        {
+          "type": "final_showdown",
+          "dialogue": "The owner looks at you with a sharp gaze. 'It’s time for you to play against me. Do you have the courage to bet it all and win?'"
+        }
+      ]
+    }
+  }
+}
