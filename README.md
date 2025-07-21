@@ -26,4 +26,4 @@ Golden Casino Requiem is an interactive text-based adventure game with a graphic
    cd Textadventure_GUI
 
 ## NOTE
-Im way to lazy to implement all of the pictures so if you want every room to have its own visual do it yourself or wait until im motvated enough to do that. (If you're waitung for the update, im sorry but u will never get it bc im a lazy fatass.)
+Im way to lazy to implement all of the pictures so if you want every room to have its own visual do it yourself or wait until im motivated enough to do that. (If you're waiting for the update, im sorry but u will never get it bc im a lazy fatass.)
